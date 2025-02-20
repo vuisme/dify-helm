@@ -205,7 +205,7 @@ api:
       ##   set, choosing the default provisioner.
       ## ReadWriteMany access mode required for `api` and `worker`
       ##
-      storageClass:
+      storageClass: rook-cephfs
       accessModes: ReadWriteMany
       size: 5Gi
       subPath: ""
@@ -319,7 +319,7 @@ proxy:
         ##   set, choosing the default provisioner.
         ## ReadWriteMany access mode required for nginx
         ##
-        storageClass:
+        storageClass: rook-cephfs
         accessModes: ReadWriteMany
         size: 1Gi
         subPath: ""
@@ -530,7 +530,7 @@ ssrfProxy:
         ##   set, choosing the default provisioner.
         ## ReadWriteMany access mode required for squid
         ##
-        storageClass:
+        storageClass: rook-cephfs
         accessModes: ReadWriteMany
         size: 1Gi
         subPath: ""
@@ -600,7 +600,7 @@ pluginDaemon:
       ##   set, choosing the default provisioner.
       ## ReadWriteMany access mode required for `pluginDaemon`
       ##
-      storageClass:
+      storageClass: rook-cephfs
       accessModes: ReadWriteMany
       size: 5Gi
       subPath: ""
