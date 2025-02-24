@@ -28,6 +28,10 @@ FILES_URL: {{ .Values.api.url.files | quote }}
 # When enabled, migrations will be executed prior to application startup and the application will start after the migrations have completed.
 MIGRATION_ENABLED: {{ .Values.api.migration | toString | quote }}
 
+## update-begin-author: luo_jj date:2025-02-24 for: 添加知识库相关配置
+{{- include "dify.knowledge.config" . }}
+## update-end-author: luo_jj date:2025-02-24 for: 添加知识库相关配置
+
 # The configurations of postgres database connection.
 # It is consistent with the configuration in the 'db' service below.
 {{- include "dify.db.config" . }}
@@ -510,3 +514,15 @@ SERVER_PORT: "5002"
 MAX_PLUGIN_PACKAGE_SIZE: "52428800"
 PLUGIN_WORKING_PATH: {{ .Values.pluginDaemon.persistence.mountPath | quote }}
 {{- end }}
+
+## update-begin-author: luo_jj date:2025-02-24 for: 添加知识库相关配置
+{{- define "dify.knowledge.config" }}
+UPLOAD_FILE_SIZE_LIMIT: "100"
+UPLOAD_FILE_BATCH_LIMIT: "10"
+
+# Maximum length of segmentation tokens for indexing
+INDEXING_MAX_SEGMENTATION_TOKENS_LENGTH: "8000"
+{{- end }}
+## update-end-author: luo_jj date:2025-02-24 for: 添加知识库相关配置
+
+
