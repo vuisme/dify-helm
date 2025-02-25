@@ -226,6 +226,7 @@ api:
     ##
     annotations: {}
 
+
 worker:
   enabled: true
   replicas: 1
@@ -886,7 +887,7 @@ weaviate:
     PROMETHEUS_MONITORING_ENABLED: false
 
     # Set a MEM limit for the Weaviate Pod so it can help you both increase GC-related
-    # performance as well as avoid GC-related out-of-memory (“OOM”) situations
+    # performance as well as avoid GC-related out-of-memory ("OOM") situations
     # GOMEMLIMIT: 6GiB
 
     # Maximum results Weaviate can query with/without pagination
@@ -3079,3 +3080,51 @@ externalTencentVectorDB:
   database: "dify"
   shard: 1
   replicas: 2
+
+## update-begin-author: luo_jj date:2025-02-24 for: 添加知识库相关配置
+knowledge:
+  uploadFileSizeLimit: 100
+  uploadFileBatchLimit: 10
+  indexingMaxSegmentationTokensLength: 8000
+## update-end-author: luo_jj date:2025-02-24 for: 添加知识库相关配置
+
+## update-begin-author: luo_jj date:2025-02-26 for: 添加工作流相关配置
+workflow:
+  httpRequestMaxConnectTimeout: 300
+  httpRequestMaxReadTimeout: 600
+  httpRequestMaxWriteTimeout: 600
+  httpRequestNodeMaxBinarySize: 104857600
+  httpRequestNodeMaxTextSize: 104857600
+## update-end-author: luo_jj date:2025-02-26 for: 添加工作流相关配置
+
+## update-begin-author: luo_jj date:2025-02-26 for: 添加自定义CA证书
+customCACert: |-
+  -----BEGIN CERTIFICATE-----
+  MIIExjCCAy6gAwIBAgIRAPiKt6qzOqWHWGxkzg06YIYwDQYJKoZIhvcNAQELBQAw
+  ezEeMBwGA1UEChMVbWtjZXJ0IGRldmVsb3BtZW50IENBMSgwJgYDVQQLDB9YSUFP
+  WElOUFJPMTRcS3lyaWVAWElBT1hJTlBSTzE0MS8wLQYDVQQDDCZta2NlcnQgWElB
+  T1hJTlBSTzE0XEt5cmllQFhJQU9YSU5QUk8xNDAeFw0yNDEyMjcwNzU2MjZaFw0z
+  NDEyMjcwNzU2MjZaMHsxHjAcBgNVBAoTFW1rY2VydCBkZXZlbG9wbWVudCBDQTEo
+  MCYGA1UECwwfWElBT1hJTlBSTzE0XEt5cmllQFhJQU9YSU5QUk8xNDEvMC0GA1UE
+  AwwmbWtjZXJ0IFhJQU9YSU5QUk8xNFxLeXJpZUBYSUFPWElOUFJPMTQwggGiMA0G
+  CSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQDzzzBJ5wWkr0V7gUnVGpfM6UpbzOWo
+  wgwOPGOKhuBEzDlphcN5cuOFV05go1TlOwj/bNYBnnOYbhqSwTBJi2gLRGZf36Od
+  HQ8WoMsqOOgq944f2Z8/Q/7sISx3mH1U2WlQkepfCflnMnNohHTr347hQk3ESrv3
+  CouPou/LYfFTeb6NvGmuMXnjzb5RMl4KLInTmdNcpdCwzRxDeBImqzBEAfi+C1zx
+  UiXQUqHwfVZH9O9nwdaJiQgWVqayc6p0Ofah80Cq+VPyfKimFZtLv2OEtjdpeFD/
+  nfXi8lOhvgMn+JgtqUxDL5Y3XvU5U2jBUz4dheUI7EKYj7ECjxPA64osAvNLsfac
+  Qm+hXHoYFQknlHOJ73MRGBO/tmKgwXEeDcZSSgaXUTqu3qbWIjsiH2/9flpYCcCZ
+  mqMoe8nAbIHO7kQ2z6amXzJx8Sz2MQEgP0rjDtG3h9hebucKBOCUPX8cFmLu28Ij
+  lzVHZBNDHO1Mmb3VCCzqN+Y4nbJGAOlvGPECAwEAAaNFMEMwDgYDVR0PAQH/BAQD
+  AgIEMBIGA1UdEwEB/wQIMAYBAf8CAQAwHQYDVR0OBBYEFHMVXmNtWVZcz/eXGjnL
+  KMhWu3Z9MA0GCSqGSIb3DQEBCwUAA4IBgQCbUptRj1fGey51zlKGxDPHObgEW4vf
+  8LPwqmeqV1ATwMvLSwEd+Z0nrzEkkdW031T4JR9SvG3in/ZSqCae/6g2ODEysK6a
+  MUJ2j8MAvLvujYvGxNhEMbiqRTERvCBkPfsCFmRQrFjm8IB297rq7tUYwjLInLtW
+  6eYcyDxsx561wOaCekOtvrOGjGiwS+DL5XaAPHnNkjgWZyGMUrfw0pih7OG7tLTe
+  Gu1YNdE8GSKs+EyLtJFvzTtfKzvRDFB6BiU7WfC9ssMfIxg0ViH71Z1C5XZwSfG1
+  qsW9vaVPosU0pysptNefl6u29yRod+62Cr45mWwJH3fsxbkq5yhyGKlwa0sXq0sA
+  l3EijtFz1OCFUcvJxAR0QG5wj+wn+0Uau6TYFtkm7Xkl2DZcyby9E6/vqZcFOel/
+  2RMSJTO8uOOdrQz7B/TXUNmu4sgHChLsFg4okaHcLL6AGj72+KkMx5kozmb4o4fU
+  dboqLu6cbPYfAgb+LOv2Okx5wc4uMjDB0VI=
+  -----END CERTIFICATE-----
+## update-end-author: luo_jj date:2025-02-26 for: 添加自定义CA证书

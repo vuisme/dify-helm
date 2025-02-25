@@ -28,6 +28,10 @@ FILES_URL: {{ .Values.api.url.files | quote }}
 # When enabled, migrations will be executed prior to application startup and the application will start after the migrations have completed.
 MIGRATION_ENABLED: {{ .Values.api.migration | toString | quote }}
 
+## update-begin-author: luo_jj date:2025-02-26 for: 添加工作流相关配置
+{{- include "dify.workflow.config" . }}
+## update-end-author: luo_jj date:2025-02-26 for: 添加工作流相关配置
+
 ## update-begin-author: luo_jj date:2025-02-24 for: 添加知识库相关配置
 {{- include "dify.knowledge.config" . }}
 ## update-end-author: luo_jj date:2025-02-24 for: 添加知识库相关配置
@@ -517,12 +521,19 @@ PLUGIN_WORKING_PATH: {{ .Values.pluginDaemon.persistence.mountPath | quote }}
 
 ## update-begin-author: luo_jj date:2025-02-24 for: 添加知识库相关配置
 {{- define "dify.knowledge.config" }}
-UPLOAD_FILE_SIZE_LIMIT: "100"
-UPLOAD_FILE_BATCH_LIMIT: "10"
-
-# Maximum length of segmentation tokens for indexing
-INDEXING_MAX_SEGMENTATION_TOKENS_LENGTH: "8000"
+UPLOAD_FILE_SIZE_LIMIT: {{ printf "%d" (int64 .Values.knowledge.uploadFileSizeLimit) | quote }}
+UPLOAD_FILE_BATCH_LIMIT: {{ printf "%d" (int64 .Values.knowledge.uploadFileBatchLimit) | quote }}
+INDEXING_MAX_SEGMENTATION_TOKENS_LENGTH: {{ printf "%d" (int64 .Values.knowledge.indexingMaxSegmentationTokensLength) | quote }}
 {{- end }}
 ## update-end-author: luo_jj date:2025-02-24 for: 添加知识库相关配置
 
+## update-begin-author: luo_jj date:2025-02-26 for: 添加工作流相关配置
+{{- define "dify.workflow.config" }}
+HTTP_REQUEST_MAX_CONNECT_TIMEOUT: {{ printf "%d" (int64 .Values.workflow.httpRequestMaxConnectTimeout) | quote }}
+HTTP_REQUEST_MAX_READ_TIMEOUT: {{ printf "%d" (int64 .Values.workflow.httpRequestMaxReadTimeout) | quote }}
+HTTP_REQUEST_MAX_WRITE_TIMEOUT: {{ printf "%d" (int64 .Values.workflow.httpRequestMaxWriteTimeout) | quote }}
+HTTP_REQUEST_NODE_MAX_BINARY_SIZE: {{ printf "%d" (int64 .Values.workflow.httpRequestNodeMaxBinarySize) | quote }}
+HTTP_REQUEST_NODE_MAX_TEXT_SIZE: {{ printf "%d" (int64 .Values.workflow.httpRequestNodeMaxTextSize) | quote }}
+{{- end }}
+## update-end-author: luo_jj date:2025-02-26 for: 添加工作流相关配置
 
