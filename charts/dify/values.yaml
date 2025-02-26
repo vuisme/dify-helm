@@ -624,6 +624,8 @@ pluginDaemon:
   ## update-begin-author: luo_jj date:2025-02-26 for: 添加 dify-plugin-daemon:0.0.2-local 版本必需配置
   pluginDifyInnerApiUrl: "http://dify-api:5001"
   pluginDifyInnerApiKey: "QaHbTe77CtuXmsfyhR7+vRjI/+XbV1AaFy691iy+kGDv2Jvy0/eAh8Y1"
+  pluginRemoteInstallingHost: "0.0.0.0"
+  pluginRemoteInstallingPort: "5003"
   ## update-end-author: luo_jj date:2025-02-26 for: 添加 dify-plugin-daemon:0.0.2-local 版本必需配置
 
 postgresql:
