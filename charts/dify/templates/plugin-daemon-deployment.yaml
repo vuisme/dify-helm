@@ -79,6 +79,9 @@ spec:
           - name: api
             containerPort: 5002
             protocol: TCP
+          - name: plugin
+            containerPort: 5003
+            protocol: TCP
         resources:
           {{- toYaml .Values.pluginDaemon.resources | nindent 12 }}
         volumeMounts:
