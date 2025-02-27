@@ -166,6 +166,10 @@ api:
     # or download URL to the front-end or as a multi-modal model input;
     # In order to prevent others from forging, the image preview URL is signed and has a 5-minute expiration time.
     files: "https://dify.vxk8s.com"
+    # Marketplace URL, used to display the Marketplace URL to the front-end.
+    # If empty, it is the same domain. Example: https://marketplace.dify.ai
+    marketplace: "https://dify.vxk8s.com"
+    marketplaceApi: "https://dify.vxk8s.com"
   mail:
     # default email sender from email address, if not not given specific address
     defaultSender: 'YOUR EMAIL FROM (eg: no-reply <no-reply@dify.ai>)'

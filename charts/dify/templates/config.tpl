@@ -131,6 +131,10 @@ CONSOLE_API_URL: {{ .Values.api.url.consoleApi | quote }}
 # example: http://udify.app
 APP_API_URL: {{ .Values.api.url.appApi | quote }}
 # The DSN for Sentry
+## update-begin-author: luo_jj date:2025-02-27 for: 添加插件市场 URL 配置
+MARKETPLACE_API_URL: {{ .Values.api.url.marketplaceApi | quote }}
+MARKETPLACE_URL: {{ .Values.api.url.marketplace | quote }}
+## update-end--author: luo_jj date:2025-02-27 for: 添加插件市场 URL 配置
 {{- end }}
 
 {{- define "dify.db.config" -}}
